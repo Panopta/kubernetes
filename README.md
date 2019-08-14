@@ -22,6 +22,7 @@ Then deploy Panopta using:
 `helm install -f values.yaml panopta/panopta`
 
 ### Configuration Parameters
+
 | Key Name                  | Default                                    | Description                                                                                                                |
 |---------------------------|--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
 | customer_key              | <Required>                                 | Your Panopta customer key                                                                                                  |
