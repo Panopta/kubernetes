@@ -23,13 +23,13 @@ Then deploy Panopta using:
 
 ### Configuration Parameters
 
-| Key Name                  | Default                                    | Description                                                                                                                |
-|---------------------------|--------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
-| customer_key              | <Required>                                 | Your Panopta customer key                                                                                                  |
-| agent_config              | None                                       | Any additional blocks of configuration to deploy onto the nodes' agents                                                    |
-| kubeStateMetrics.install  | true                                       | Whether to install kube-state-metrics as part of the deployment. Set to `false` if it's already installed.                 |
-| kubeStateMetrics.endpoint | http://kube-state-metrics.default.svc:8080 | The endpoint where kube-state-metrics can be accessed. If it was installed outside of Panopta, you'll need to update this. |
-| metricsServer.install     | true                                       | Whether to install metrics-server as part of the deployment. Set to `false` if it's already installed.                     |
+| Key Name                  | Default                                    | Description                                                                                                                                                                  |
+|---------------------------|--------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| customer_key              | <Required>                                 | Your Panopta customer key                                                                                                                                                    |
+| agent_config              | None                                       | Any additional blocks of configuration to deploy onto the nodes' agents                                                                                                      |
+| kubeStateMetrics.install  | true                                       | Whether to install kube-state-metrics as part of the deployment. Set to `false` if it's already installed.                                                                   |
+| kubeStateMetrics.endpoint | http://kube-state-metrics.default.svc:8080 | The endpoint where kube-state-metrics can be accessed. If you are using a namespace other than `default` or it was installed outside of Panopta, you'll need to update this. |
+| metricsServer.install     | true                                       | Whether to install metrics-server as part of the deployment. Set to `false` if it's already installed.                                                                       |
 
 ## Upgrading Panopta
 1. Fetch new charts using `helm repo update`
