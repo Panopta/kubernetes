@@ -2,8 +2,17 @@ apiVersion: v1
 entries:
   panopta:
   - apiVersion: v1
+    appVersion: "1.9"
+    created: "2020-05-18T16:45:56.201750342-05:00"
+    description: A Helm chart for deploying Panopta's Kubernetes monitoring infrastructure
+    digest: 14c96b52ccf8b1ad525d89ed5ec28c34d075491e2d096598d25ad14727158cff
+    name: panopta
+    urls:
+    - https://panopta.github.io/kubernetes/repo/panopta-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v1
     appVersion: "1.8"
-    created: 2020-05-15T11:30:59.258942313-05:00
+    created: "2020-05-18T16:45:56.200075377-05:00"
     description: A Helm chart for deploying Panopta's Kubernetes monitoring infrastructure
     digest: 4a00002da9918a2547efe34252325de0bfd4978c1e4cba43f1eec371929c51d0
     name: panopta
@@ -12,7 +21,7 @@ entries:
     version: 0.1.8
   - apiVersion: v1
     appVersion: "1.7"
-    created: 2020-05-15T11:30:59.257153052-05:00
+    created: "2020-05-18T16:45:56.198932028-05:00"
     description: A Helm chart for deploying Panopta's Kubernetes monitoring infrastructure
     digest: 654037fcfea5e74bac9eb07c3915d5b219c2cf27e8836e3ac5f911622f94f342
     name: panopta
@@ -21,7 +30,7 @@ entries:
     version: 0.1.7
   - apiVersion: v1
     appVersion: "1.6"
-    created: 2020-05-15T11:30:59.255849332-05:00
+    created: "2020-05-18T16:45:56.197854555-05:00"
     description: A Helm chart for deploying Panopta's Kubernetes monitoring infrastructure
     digest: 257a3d39f0eda2d3033a843568581c0d38a7daf81e7821634d9a2dec094557c9
     name: panopta
@@ -30,7 +39,7 @@ entries:
     version: 0.1.6
   - apiVersion: v1
     appVersion: "1.5"
-    created: 2020-05-15T11:30:59.254699333-05:00
+    created: "2020-05-18T16:45:56.196819067-05:00"
     description: A Helm chart for deploying Panopta's Kubernetes monitoring infrastructure
     digest: 62ffa49a58e2f08b5c10ffd6921f8976f6055a0032befcfbdadf91da3fccc931
     name: panopta
@@ -39,7 +48,7 @@ entries:
     version: 0.1.5
   - apiVersion: v1
     appVersion: "1.4"
-    created: 2020-05-15T11:30:59.253831507-05:00
+    created: "2020-05-18T16:45:56.195827265-05:00"
     description: A Helm chart for deploying Panopta's Kubernetes monitoring infrastructure
     digest: ac0d06e7016376d0a2ceae369fcd6407d32ae12adcec872152f784aa62ce4b20
     name: panopta
@@ -48,7 +57,7 @@ entries:
     version: 0.1.4
   - apiVersion: v1
     appVersion: "1.3"
-    created: 2020-05-15T11:30:59.252960362-05:00
+    created: "2020-05-18T16:45:56.194950396-05:00"
     description: A Helm chart for Kubernetes
     digest: ea244785db6943df8c490433fd1553fc6284184644c89f67402ca46eaed169f2
     name: panopta
@@ -57,11 +66,11 @@ entries:
     version: 0.1.3
   - apiVersion: v1
     appVersion: "1.2"
-    created: 2020-05-15T11:30:59.25275941-05:00
+    created: "2020-05-18T16:45:56.194708961-05:00"
     description: A Helm chart for Kubernetes
     digest: d608b524caa487602afaadba7fdaa36a07143dcd7fdc688b224b48e7dbd28e81
     name: panopta
     urls:
     - https://panopta.github.io/kubernetes/repo/panopta-0.1.2.tgz
     version: 0.1.2
-generated: 2020-05-15T11:30:59.252403587-05:00
+generated: "2020-05-18T16:45:56.194336406-05:00"
