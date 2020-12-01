@@ -27,7 +27,7 @@ You can also specify such options in a YAML-formatted `values.yaml` file which y
 | customer_key              | None (Required)                            | Your Panopta customer key                                                                                                |
 | clusterName               | Kubernetes Cluster                         | The name of this cluster as it will show up in the controlpanel                                                          |
 | metricsServer.install     | true                                       | Whether to install metrics-server as part of the deployment. Set to `false` if it's already installed.                   |
-| topNNamespaces            | 25                                         | Number of namespaces to pull in, ordered by number of pods                                                               |
+| topNNamespaces            | 0                                          | Number of namespaces to pull in, ordered by number of pods. 0 to include all.                                            |
 | onsightRequests.cpu       | 3.0                                        | Requested CPU for the Panopta OnSight                                                                                    |
 | onsightRequests.memory    | 3Gi                                        | Requested Memory for the Panopta OnSight                                                                                 |
 | agent_config              | None                                       | Any additional blocks of configuration to deploy onto the nodes' agents                                                  |
