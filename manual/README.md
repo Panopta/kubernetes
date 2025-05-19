@@ -1,6 +1,7 @@
-# FortiMonitor Kubernetes Integration
+---
+title: Manual Installation
+---
 
-## Manual Installation
 1. Create a `fortimonitor` namespace and switch into it
 2. Verify whether `metrics-server` is already configured in your cluster by running `kubectl get svc -A | grep metrics-server`
 3. If `metrics-server` is NOT installed, install it by running `kubectl apply -f metrics-server/` from this directory

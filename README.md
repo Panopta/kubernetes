@@ -1,4 +1,6 @@
-# FortiMonitor Kubernetes Integration
+---
+title: FortiMonitor Kubernetes Integration
+---
 
 ## Prerequisites
 * A Kubernetes cluster configured with kubectl
