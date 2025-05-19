@@ -1,1 +1,5 @@
-theme: jekyll-theme-minimal
+theme: minima
+minima:
+  skin: dark
+  nav_pages:
+    - manual/README.md
