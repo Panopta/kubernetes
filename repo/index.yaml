@@ -2,7 +2,24 @@ apiVersion: v1
 entries:
   fortimonitor:
   - apiVersion: v2
-    created: "2025-05-23T12:47:38.411370784-05:00"
+    created: "2025-05-23T12:55:43.306971774-05:00"
+    dependencies:
+    - condition: kubeStateMetrics.install
+      name: kube-state-metrics
+      repository: https://prometheus-community.github.io/helm-charts
+      version: 3.5.*
+    - condition: metricsServer.install
+      name: metrics-server
+      repository: https://charts.bitnami.com/bitnami
+      version: 5.10.*
+    description: Helm chart for deploying FortiMonitor's Kubernetes monitoring infrastructure
+    digest: 616bd03ab43756668e68a7a1c84e80d2fd381068fc3121ad039e810a526445be
+    name: fortimonitor
+    urls:
+    - https://panopta.github.io/kubernetes/repo/fortimonitor-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
+    created: "2025-05-23T12:55:43.29909954-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -19,7 +36,7 @@ entries:
     - https://panopta.github.io/kubernetes/repo/fortimonitor-1.2.0.tgz
     version: 1.2.0
   - apiVersion: v2
-    created: "2025-05-23T12:47:38.408190215-05:00"
+    created: "2025-05-23T12:55:43.291042581-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -38,7 +55,7 @@ entries:
   kube-state-metrics:
   - apiVersion: v1
     appVersion: 1.7.2
-    created: "2025-05-23T12:47:38.411788146-05:00"
+    created: "2025-05-23T12:55:43.308143149-05:00"
     description: Install kube-state-metrics to generate and expose cluster-level metrics
     digest: 2b572fb3907543f9a769a5f5797b460dd44ffbf74c3eb8f7556e8c9024850a4d
     home: https://github.com/kubernetes/kube-state-metrics/
@@ -60,7 +77,7 @@ entries:
     version: 2.3.0
   panopta:
   - apiVersion: v2
-    created: "2025-05-23T12:47:38.44277931-05:00"
+    created: "2025-05-23T12:55:43.394552896-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -77,7 +94,7 @@ entries:
     - https://panopta.github.io/kubernetes/repo/panopta-1.0.0.tgz
     version: 1.0.0
   - apiVersion: v2
-    created: "2025-05-23T12:47:38.440563963-05:00"
+    created: "2025-05-23T12:55:43.388536791-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -94,7 +111,7 @@ entries:
     - https://panopta.github.io/kubernetes/repo/panopta-0.4.3.tgz
     version: 0.4.3
   - apiVersion: v2
-    created: "2025-05-23T12:47:38.439102576-05:00"
+    created: "2025-05-23T12:55:43.38268054-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -111,7 +128,7 @@ entries:
     - https://panopta.github.io/kubernetes/repo/panopta-0.4.2.tgz
     version: 0.4.2
   - apiVersion: v2
-    created: "2025-05-23T12:47:38.437661807-05:00"
+    created: "2025-05-23T12:55:43.378158543-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -128,7 +145,7 @@ entries:
     - https://panopta.github.io/kubernetes/repo/panopta-0.4.1.tgz
     version: 0.4.1
   - apiVersion: v2
-    created: "2025-05-23T12:47:38.436185009-05:00"
+    created: "2025-05-23T12:55:43.37347447-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -146,7 +163,7 @@ entries:
     - https://panopta.github.io/kubernetes/repo/panopta-0.4.0.tgz
     version: 0.4.0
   - apiVersion: v1
-    created: "2025-05-23T12:47:38.433895592-05:00"
+    created: "2025-05-23T12:55:43.368903679-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -163,7 +180,7 @@ entries:
     - https://panopta.github.io/kubernetes/repo/panopta-0.3.0.tgz
     version: 0.3.0
   - apiVersion: v1
-    created: "2025-05-23T12:47:38.432710324-05:00"
+    created: "2025-05-23T12:55:43.36468631-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -180,7 +197,7 @@ entries:
     - https://panopta.github.io/kubernetes/repo/panopta-0.2.8.tgz
     version: 0.2.8
   - apiVersion: v1
-    created: "2025-05-23T12:47:38.431635154-05:00"
+    created: "2025-05-23T12:55:43.361897754-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -197,7 +214,7 @@ entries:
     - https://panopta.github.io/kubernetes/repo/panopta-0.2.7.tgz
     version: 0.2.7
   - apiVersion: v1
-    created: "2025-05-23T12:47:38.430528928-05:00"
+    created: "2025-05-23T12:55:43.359159026-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -214,7 +231,7 @@ entries:
     - https://panopta.github.io/kubernetes/repo/panopta-0.2.6.tgz
     version: 0.2.6
   - apiVersion: v1
-    created: "2025-05-23T12:47:38.429420935-05:00"
+    created: "2025-05-23T12:55:43.356088508-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -231,7 +248,7 @@ entries:
     - https://panopta.github.io/kubernetes/repo/panopta-0.2.5.tgz
     version: 0.2.5
   - apiVersion: v1
-    created: "2025-05-23T12:47:38.428240186-05:00"
+    created: "2025-05-23T12:55:43.352689162-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -248,7 +265,7 @@ entries:
     - https://panopta.github.io/kubernetes/repo/panopta-0.2.4.tgz
     version: 0.2.4
   - apiVersion: v1
-    created: "2025-05-23T12:47:38.426642234-05:00"
+    created: "2025-05-23T12:55:43.349203004-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -265,7 +282,7 @@ entries:
     - https://panopta.github.io/kubernetes/repo/panopta-0.2.3.tgz
     version: 0.2.3
   - apiVersion: v1
-    created: "2025-05-23T12:47:38.42552449-05:00"
+    created: "2025-05-23T12:55:43.345489717-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -282,7 +299,7 @@ entries:
     - https://panopta.github.io/kubernetes/repo/panopta-0.2.2.tgz
     version: 0.2.2
   - apiVersion: v1
-    created: "2025-05-23T12:47:38.42444297-05:00"
+    created: "2025-05-23T12:55:43.342528959-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -300,7 +317,7 @@ entries:
     version: 0.2.1
   - apiVersion: v1
     appVersion: "1.14"
-    created: "2025-05-23T12:47:38.415711091-05:00"
+    created: "2025-05-23T12:55:43.320383627-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -318,7 +335,7 @@ entries:
     version: 0.1.14
   - apiVersion: v1
     appVersion: "1.13"
-    created: "2025-05-23T12:47:38.414949691-05:00"
+    created: "2025-05-23T12:55:43.317089449-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -336,7 +353,7 @@ entries:
     version: 0.1.13
   - apiVersion: v1
     appVersion: "1.12"
-    created: "2025-05-23T12:47:38.414215365-05:00"
+    created: "2025-05-23T12:55:43.314817401-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -354,7 +371,7 @@ entries:
     version: 0.1.12
   - apiVersion: v1
     appVersion: "1.11"
-    created: "2025-05-23T12:47:38.413453979-05:00"
+    created: "2025-05-23T12:55:43.312618587-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -372,7 +389,7 @@ entries:
     version: 0.1.11
   - apiVersion: v1
     appVersion: "1.10"
-    created: "2025-05-23T12:47:38.412627705-05:00"
+    created: "2025-05-23T12:55:43.310305896-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -390,7 +407,7 @@ entries:
     version: 0.1.10
   - apiVersion: v1
     appVersion: "1.9"
-    created: "2025-05-23T12:47:38.423290409-05:00"
+    created: "2025-05-23T12:55:43.337820406-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -408,7 +425,7 @@ entries:
     version: 0.1.9
   - apiVersion: v1
     appVersion: "1.8"
-    created: "2025-05-23T12:47:38.422161101-05:00"
+    created: "2025-05-23T12:55:43.334603057-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -426,7 +443,7 @@ entries:
     version: 0.1.8
   - apiVersion: v1
     appVersion: "1.7"
-    created: "2025-05-23T12:47:38.420939257-05:00"
+    created: "2025-05-23T12:55:43.331868584-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -444,7 +461,7 @@ entries:
     version: 0.1.7
   - apiVersion: v1
     appVersion: "1.6"
-    created: "2025-05-23T12:47:38.419865359-05:00"
+    created: "2025-05-23T12:55:43.329291642-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -462,7 +479,7 @@ entries:
     version: 0.1.6
   - apiVersion: v1
     appVersion: "1.5"
-    created: "2025-05-23T12:47:38.41852919-05:00"
+    created: "2025-05-23T12:55:43.326936647-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -480,7 +497,7 @@ entries:
     version: 0.1.5
   - apiVersion: v1
     appVersion: "1.4"
-    created: "2025-05-23T12:47:38.416873147-05:00"
+    created: "2025-05-23T12:55:43.324325841-05:00"
     dependencies:
     - condition: kubeStateMetrics.install
       name: kube-state-metrics
@@ -498,7 +515,7 @@ entries:
     version: 0.1.4
   - apiVersion: v1
     appVersion: "1.3"
-    created: "2025-05-23T12:47:38.416076953-05:00"
+    created: "2025-05-23T12:55:43.32171819-05:00"
     description: A Helm chart for Kubernetes
     digest: ea244785db6943df8c490433fd1553fc6284184644c89f67402ca46eaed169f2
     name: panopta
@@ -507,11 +524,11 @@ entries:
     version: 0.1.3
   - apiVersion: v1
     appVersion: "1.2"
-    created: "2025-05-23T12:47:38.415902755-05:00"
+    created: "2025-05-23T12:55:43.321091363-05:00"
     description: A Helm chart for Kubernetes
     digest: d608b524caa487602afaadba7fdaa36a07143dcd7fdc688b224b48e7dbd28e81
     name: panopta
     urls:
     - https://panopta.github.io/kubernetes/repo/panopta-0.1.2.tgz
     version: 0.1.2
-generated: "2025-05-23T12:47:38.404412772-05:00"
+generated: "2025-05-23T12:55:43.281652875-05:00"
