@@ -3,3 +3,11 @@
 ---
 
 @import "minima";
+
+.wrapper {
+    width: 75%;
+
+    > section {
+        width: 75%;
+    }
+}
