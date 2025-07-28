@@ -58,3 +58,4 @@ The following options are available to be set in `values.yaml` or via `--set`:
 
 ## Uninstalling FortiMonitor
 Run `helm uninstall <deployment_name>`
+
