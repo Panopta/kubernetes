@@ -1,5 +1,3 @@
-# FortiMonitor Kubernetes Integration
-
 ## Prerequisites
 * Helm/kubectl access to target cluster
 

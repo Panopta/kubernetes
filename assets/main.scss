@@ -5,9 +5,10 @@
 @import "minima";
 
 .wrapper {
-    width: 75%;
+    width: 60%;
+    max-width: 60%;
 
     > section {
-        width: 75%;
+        width: 60%;
     }
 }
