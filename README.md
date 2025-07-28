@@ -1,59 +1,60 @@
----
-title: FortiMonitor Kubernetes Integration
----
+# FortiMonitor Kubernetes Integration
 
 ## Prerequisites
-* A Kubernetes cluster configured with kubectl
-* Helm installed locally
+* Helm/kubectl access to target cluster
 
 ## Resource Requirements
 This chart comes with three default deployment sizes: `small`, `medium`, and `large`  
+The default size is `medium`.  
 You can specify any upon installation using for example `--set size=large`  
-You can also override any individual request using `--set onsightRequests.<resource>=<value>` where `<resource>` is `cpu`, `memory`, or `ephemeral`
+You can also override any individual request using `--set onsightRequests.<resource>=<value>` where `<resource>` is `cpu` or `memory`
 
-| Size               | Suggested # of Pods   | Requested OnSight CPUs | Requested OnSight Memory | Requested OnSight Ephemeral Storage |
-|--------------------|-----------------------|------------------------|--------------------------|-------------------------------------|
-| small              | < 500                 | 1.0                    | 1Gi                      | 10Gi                                |
-| medium             | 500-2000              | 2.0                    | 2Gi                      | 20Gi                                |
-| large              | >2000                 | 3.0                    | 3Gi                      | 50Gi                                |
+| Size               | Suggested # of Pods   | Requested OnSight CPUs | Requested OnSight Memory | Requested OnSight |
+|--------------------|-----------------------|------------------------|--------------------------|-------------------|
+| small              | < 500                 | 1.0                    | 1Gi                      | 10Gi              |
+| medium             | 500-2000              | 2.0                    | 2Gi                      | 20Gi              |
+| large              | >2000                 | 3.0                    | 3Gi                      | 50Gi              |
 
-## Deploying FortiMonitor
-**Note:** See above for determining `size`. The default is `medium`.
-**Note:** If your cluster already has `metrics-server` installed, you can disable its installation (described below).
-1. Add this Helm repo using `helm repo add fortimonitor https://panopta.github.io/kubernetes/repo`
-2. Install FortiMonitor using `helm install --set customer_key=<your-customer-key> --set size=<size> <name-of-release> panopta/fortimonitor`
+## Quickstart
+1. Add this Helm repo using `helm repo add panopta https://panopta.github.io/kubernetes/repo`
+2. Switch to the desired Kubernetes namespace for the installation
+3. Install FortiMonitor using `helm install -g --set customerKey=<your-customer-key> --set size=<size> panopta/fortimonitor`
+  a. You can specify a name for this cluster by also adding `--set clusterName=<name>` to the above command or your values.yaml
 
+After a successful install, an OnSight pod should be created within the namespace. It will automatically configure the integration and register it to your FortiMonitor account.  
 In a few minutes, your cluster should show up in the FortiMonitor control panel.
 
-### A Note on `metrics-server`
-The chart will install [metrics-server](https://github.com/kubernetes-sigs/metrics-server) by default. If you already have metrics-server installed in your cluster, you can skip it with `--set metricsServer.install=false`
+### Configuration
+Configuration of the FortiMonitor integration can be done via the usual Helm values mechanisms.  
+The preferred method is by creating a `values.yaml` file which can be passed to `helm install`/`helm update` with the `-f values.yaml` flag.  
 
-### Advanced configuration
-If you wish to further customize your FortiMonitor deployment, you can pass additional options to the install command by adding one to many  
-`--set <key>=<value>`  
-to the install command.  
-Below is a table of available configuration options.  
-You can also specify such options in a YAML-formatted `values.yaml` file which you can then pass along to the install command with `-f values.yaml`
+An example values.yaml file using the above Quickstart instructions would look like:
+
+```yaml
+size: medium
+customerKey: your-customer-key-123
+clusterName: "My Cluster"
+```
 
 ### Configuration Options
 
-| Key Name                  | Default                                    | Description                                                                                                              |
-|---------------------------|--------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
-| customer_key              | None (Required)                            | Your FortiMonitor customer key                                                                                                |
-| size                      | medium                                     | Size of the cluster you are deploying to                                                                                 |
-| clusterName               | Kubernetes Cluster                         | The name of this cluster as it will show up in the controlpanel                                                          |
-| metricsServer.install     | true                                       | Whether to install metrics-server as part of the deployment. Set to `false` if it's already installed.                   |
-| topNNamespaces            | 0                                          | Number of namespaces to pull in, ordered by number of pods. 0 to include all.                                            |
-| onsightRequests.cpu       | None                                       | Requested CPU for the FortiMonitor OnSight                                                                                    |
-| onsightRequests.memory    | None                                       | Requested Memory for the FortiMonitor OnSight                                                                                 |
-| onsightRequests.ephemeral | None                                       | Requested Ephemeral Storage for the FortiMonitor OnSight                                                                      |
-| agent_config              | None                                       | Any additional blocks of configuration to deploy onto the nodes' agents                                                  |
+The following options are available to be set in `values.yaml` or via `--set`:
+
+| Key Name                  | Default            | Type            | Description                                                                                  |
+|---------------------------|--------------------------------------|----------------------------------------------------------------------------------------------|
+| customerKey               | None (Required)    | String          | Your FortiMonitor customer key                                                               |
+| size                      | medium             | String          | Size of the cluster you are deploying to                                                     |
+| clusterName               | Kubernetes Cluster | String          | The name of this cluster as it will show up in the controlpanel                              |
+| topNNamespaces            | 0                  | Int             | Number of namespaces to pull in, ordered by number of pods. 0 to include all.                |
+| filterNamespaces.include  | None               | List of Strings | If set, the integration will only collect namespaced objects from the specified namespaces.  |
+| filterNamespaces.exclude  | None               | List of Strings | If set, the integration will ignore objects from the specified namespaces.                   |
+| onsightRequests.cpu       | None               |                 | Requested CPU for the FortiMonitor OnSight                                                   |
+| onsightRequests.memory    | None               |                 | Requested Memory for the FortiMonitor OnSight                                                |
 
 ## Upgrading FortiMonitor
 1. Fetch new charts using `helm repo update`
-2. Upgrade your deployment using `helm upgrade <deployment name> panopta/fortimonitor`
+2. Upgrade your deployment using `helm upgrade -f values.yaml <deployment_name> panopta/fortimonitor`
+  a. You can find the deployment name by using `helm ls` within the namespace you originally installed the integration.
 
 ## Uninstalling FortiMonitor
-Run `helm uninstall <release_name>`
-
-You can find the name of the release with `helm ls`
+Run `helm uninstall <deployment_name>`
