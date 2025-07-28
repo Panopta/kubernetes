@@ -2,4 +2,3 @@ theme: minima
 minima:
   skin: dark
 header_pages:
-  - manual/README.md
